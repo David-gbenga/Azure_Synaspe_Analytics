@@ -1,0 +1,17 @@
+{
+	"name": "Count Products by Category",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    Category, Count(*) as ProductCount\nFROM\n    OPENROWSET(\n        BULK 'https://datalake2rnze4g.dfs.core.windows.net/files/product_date/product.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\nHEADER_ROW = TRUE\n    ) AS [result]\nGROUP BY Category;    \n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
